@@ -128,7 +128,7 @@ export default class PointEditorView extends AbstractView {
   constructor({tripPoint, onSubmit}) {
     super();
     this.#tripPoint = tripPoint;
-    this.#handleSubmit = onSubmit;
+    this._callback.onSubmit = onSubmit;
     this.element.querySelector('.event--edit').addEventListener('submit', this.#submitHandler);
     this.element.querySelector('.event__rollup-btn').addEventListener('click', this.#submitHandler);
   }
@@ -139,6 +139,6 @@ export default class PointEditorView extends AbstractView {
 
   #submitHandler = (evt) => {
     evt.preventDefault();
-    this.#handleSubmit();
+    this._callback.onSubmit();
   };
 }
