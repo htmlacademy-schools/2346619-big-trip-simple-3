@@ -5,7 +5,7 @@ import { getOfferById } from '../mock/offers.js';
 
 function createOffersTemplate(offersIDs, type) {
   return offersIDs.map((offerID) => {
-    const offer = getOfferById(offerID, type);
+    const offer = getOfferById(type, offerID);
     return `<li class="event__offer">
         <span class="event__offer-title">${offer.title}</span>
          &plus;&euro;&nbsp;
@@ -48,11 +48,12 @@ function createTripPointTemplate(tripPoint) {
 
 export default class PointView extends AbstractView {
   #tripPoint = null;
+  #handleClick = null;
 
   constructor({tripPoint, onClick}) {
     super();
     this.#tripPoint = tripPoint;
-    this._callback.onClick = onClick;
+    this.#handleClick = onClick;
     this.element.querySelector('.event__rollup-btn').addEventListener('click', this.#clickHandler);
   }
 
@@ -62,6 +63,6 @@ export default class PointView extends AbstractView {
 
   #clickHandler = (evt) => {
     evt.preventDefault();
-    this._callback.onClick();
+    this.#handleClick();
   };
 }
