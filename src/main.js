@@ -16,3 +16,5 @@ const boardPresenter = new BoardPresenter({boardContainer: pageContainer, tripPo
 render(new FilterView(filters), siteFilterElement);
 
 boardPresenter.init();
+
+//module5-task1
