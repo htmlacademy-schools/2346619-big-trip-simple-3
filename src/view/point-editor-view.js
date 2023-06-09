@@ -32,8 +32,8 @@ function createOffersTemplate(offersIDs, curTypeOffers, id, isDisabled) {
     const isOfferChecked = offersIDs.includes(offer.id) ? 'checked' : '';
     return `
     <div class="event__offer-selector">
-      <input class="event__offer-checkbox  visually-hidden" id="event-offer-${offer.title.split(' ').at(-1)}-${id}" type="checkbox" name="event-offer-${offer.title.split(' ').at(-1)}" ${isOfferChecked} ${(isDisabled) ? 'disabled' : ''}>
-      <label class="event__offer-label" for="event-offer-${offer.title.split(' ').at(-1)}-${id}">
+      <input class="event__offer-checkbox  visually-hidden" id="event-offer-${offer.id}-${id}" type="checkbox" name="event-offer-${offer.id}" ${isOfferChecked} ${(isDisabled) ? 'disabled' : ''}>
+      <label class="event__offer-label" for="event-offer-${offer.id}-${id}">
         <span class="event__offer-title">${offer.title}</span>
         &plus;&euro;&nbsp;
         <span class="event__offer-price">${offer.price}</span>
@@ -74,7 +74,7 @@ function createEditFormTemplate(isEditForm, onePoint, offers, destinations) {
         <div class="event__type-list">
           <fieldset class="event__type-group">
             <legend class="visually-hidden">Event type</legend>
-              ${createEventTypeListTemplate(onePoint.type, onePoint.id)}
+            ${createEventTypeListTemplate(onePoint.type, onePoint.id)}
           </fieldset>
         </div>
       </div>
@@ -138,7 +138,6 @@ export default class PointEditorView extends AbstractStatefulView {
 
   #fromDatepicker = null;
   #toDatepicker = null;
-
   #destinations = [];
   #offers = [];
   #handleDeleteClick = null;
@@ -161,7 +160,6 @@ export default class PointEditorView extends AbstractStatefulView {
     delete point.isDeleting;
     return point;
   }
-
 
   constructor({
     onePoint = TEMPLATE_WAYPOINT,
@@ -299,7 +297,7 @@ export default class PointEditorView extends AbstractStatefulView {
 
   #offersHandler = (evt) => {
     evt.preventDefault();
-    const clickedOfferId = this._state.curTypeOffers.find((offer) => offer.title.split(' ').at(-1) === evt.target.name.split('-').at(-1)).id;
+    const clickedOfferId = Number(evt.target.name.split('-').at(-1));
     const newOffersIds = this._state.offersIDs.slice();
     if (newOffersIds.includes(clickedOfferId)) {
       newOffersIds.splice(newOffersIds.indexOf(clickedOfferId), 1);

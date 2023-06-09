@@ -52,6 +52,7 @@ const convertToBasicime = (date) => dayjs(date).format(BASIC_DATE_FORMAT);
 const capitalizeType = (type) => type.charAt(0).toUpperCase() + type.slice(1);
 const convertToFormDate = (date) => dayjs(date).format(FORM_DATE_FORMAT);
 
-export {getRandomItemFromItems, getRandomPrice, getRandomId, convertToEventDateTime, convertToEventDate, convertToDateTime, convertToTime,
-  capitalizeType, convertToFormDate, createIDgenerator, getRandomSliceFromItems, getItemFromItemsById, convertToBasicime, isEscapeKey,
-  changeType, isTripDateBeforeToday, updatePoint, isDatesEqual, filter};
+export {getRandomItemFromItems, getRandomPrice, getRandomId, convertToEventDateTime, convertToEventDate, convertToDateTime,
+  convertToTime, capitalizeType, convertToFormDate, createIDgenerator, getRandomSliceFromItems, getItemFromItemsById,
+  convertToBasicime, isEscapeKey, changeType, isTripDateBeforeToday, updatePoint, isDatesEqual, filter};
+

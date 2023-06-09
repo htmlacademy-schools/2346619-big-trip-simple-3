@@ -12,7 +12,7 @@ const pageContainer = document.querySelector('.trip-events');
 const siteFilterElement = document.querySelector('.trip-controls__filters');
 const placeForButton = document.querySelector('.trip-main');
 
-const AUTHORIZATION = 'Basic lqwhj34kv17';
+const AUTHORIZATION = 'Basic yzthedfghg1545yzel';
 const END_POINT = 'https://18.ecmascript.pages.academy/big-trip';
 
 const pointsApiService = new PointsApiService(END_POINT, AUTHORIZATION);
@@ -21,7 +21,6 @@ const tripPointModel = new TripPointModel({pointsApiService});
 const modelOffers = new ModelOffers({pointsApiService});
 const modelDestinations = new ModelDestinations({pointsApiService});
 const modelFilters = new ModelFilters();
-
 const boardPresenter = new BoardPresenter({
   boardContainer: pageContainer,
   tripPointsModel: tripPointModel,
@@ -50,7 +49,6 @@ function handleNewTaskButtonClick() {
 }
 
 filterPresenter.init();
-
 boardPresenter.init();
 tripPointModel.init()
   .finally(() => {

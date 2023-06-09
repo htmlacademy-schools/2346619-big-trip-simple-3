@@ -2,7 +2,6 @@ import Observable from '../framework/observable';
 import {UpdateType} from '../const';
 export default class TripPointModel extends Observable {
   #tripPoints = [];
-
   #pointsApiService = null;
   constructor ({pointsApiService}) {
     super();
