@@ -1,8 +1,20 @@
-export default class ModelOffers {
-  #offers = null;
+import Observable from '../framework/observable';
+export default class ModelOffers extends Observable{
+  #pointsApiService = null;
+  #offers = [];
 
-  constructor(offers) {
-    this.#offers = offers;
+  constructor({pointsApiService}) {
+    super();
+    this.#pointsApiService = pointsApiService;
+    this.init();
+  }
+
+  async init() {
+    try {
+      this.#offers = await this.#pointsApiService.offers;
+    } catch (err) {
+      this.#offers = [];
+    }
   }
 
   get offers() {
