@@ -1,7 +1,5 @@
-import {render, RenderPosition} from '../render';
 import {UpdateType, UserAction} from '../const';
-
-import {remove} from '../framework/render';
+import {remove, render, RenderPosition} from '../framework/render';
 import {isEscapeKey} from '../utils';
 import PointEditorView from '../view/point-editor-view';
 
