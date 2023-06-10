@@ -1,7 +1,6 @@
 import {FilterType, FilterTypeDescriptions, UpdateType} from '../const';
 import FilterView from '../view/filter-view';
-import {render} from '../render';
-import {remove, replace} from '../framework/render';
+import {remove, replace, render} from '../framework/render';
 import {filter} from '../utils';
 
 
